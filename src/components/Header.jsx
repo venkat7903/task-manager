@@ -1,7 +1,9 @@
 import React from "react";
 import { MdSearch } from "react-icons/md";
+import { CiFilter } from "react-icons/ci";
 const Header = (props) => {
-  const { searchText, setSearchText } = props.searchDetails;
+  const { searchText, setSearchText, orderBy, setOrderBy } =
+    props.searchDetails;
 
   return (
     <div className="bg-gray-200 p-[20px] rounded-xl flex items-center justify-between shadow-sm shadow-gray-600">
@@ -15,9 +17,21 @@ const Header = (props) => {
           onChange={(event) => setSearchText(event.target.value)}
         />
       </div>
-      <select className="p-[5px] border border-black rounded">
-        <option className="'flex items-center">Filter</option>
-      </select>
+      <div className="flex items-center">
+        <CiFilter size={25} />
+        <select
+          value={orderBy}
+          onChange={(event) => setOrderBy(event.target.value)}
+          className="p-[5px] border border-black rounded"
+        >
+          <option className="'flex items-center" value="id">
+            Default
+          </option>
+          <option className="'flex items-center" value="deadline">
+            Date
+          </option>
+        </select>
+      </div>
     </div>
   );
 };

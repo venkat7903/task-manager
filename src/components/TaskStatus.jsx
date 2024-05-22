@@ -17,7 +17,7 @@ const TaskStatus = (props) => {
   };
 
   return (
-    <div className="bg-gray-200 mx-[10px] min-h-screen md:h-screen p-[20px] rounded-xl">
+    <div className="bg-gray-200 mx-[10px] min-h-screen md:h-screen overflow-auto p-[20px] rounded-xl">
       <div className="flex justify-center items-center mb-[20px]">
         <div
           className={`${color} h-[10px] w-[10px] rounded-full mr-[6px]`}

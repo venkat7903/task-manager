@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
@@ -7,6 +8,7 @@ import { ThreeDots } from "react-loader-spinner";
 
 function App() {
   const [searchText, setSearchText] = useState("");
+  const [orderBy, setOrderBy] = useState("id");
   const [taskList, setTaskList] = useState([{}]);
   const [isLoading, setIsLoading] = useState(false);
   const todoList = taskList.filter(
@@ -26,11 +28,11 @@ function App() {
 
   useEffect(() => {
     getTasks();
-  }, [searchText]);
+  }, [searchText, orderBy]);
 
   const getTasks = async () => {
     setIsLoading(true);
-    const url = `https://tasks-api-mktq.onrender.com/tasks?search_q=${searchText}`;
+    const url = `https://tasks-api-mktq.onrender.com/tasks?search_q=${searchText}&orderby=${orderBy}`;
     const response = await fetch(url);
     const data = await response.json();
     setTaskList(data);
@@ -71,7 +73,15 @@ function App() {
   return (
     <div>
       <div className="py-[40px] max-w-[90%] mx-auto">
-        <Header searchDetails={{ searchText, setSearchText, getTasks }} />
+        <Header
+          searchDetails={{
+            searchText,
+            setSearchText,
+            getTasks,
+            orderBy,
+            setOrderBy,
+          }}
+        />
         {isLoading ? renderLoader() : render()}
       </div>
     </div>
