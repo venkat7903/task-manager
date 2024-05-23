@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import Popup from "reactjs-popup";
@@ -28,8 +29,7 @@ const TaskCard = (props) => {
       },
       body: JSON.stringify(details),
     };
-    const response = await fetch(url, options);
-    const data = await response.json();
+    await fetch(url, options);
   };
 
   let className;
