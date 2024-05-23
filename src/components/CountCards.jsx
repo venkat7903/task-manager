@@ -123,6 +123,7 @@ const CountCards = (props) => {
       </label>
       <input
         type="text"
+        required
         id="name"
         value={taskName}
         onChange={(event) => setTaskName(event.target.value)}
@@ -134,6 +135,7 @@ const CountCards = (props) => {
       <input
         type="text"
         id="desc"
+        required
         value={taskDesc}
         onChange={(event) => setTaskDesc(event.target.value)}
         className="border border-black rounded h-[30px] pl-[10px]"
