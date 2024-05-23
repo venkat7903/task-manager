@@ -54,8 +54,11 @@ React Slider
 # Description 
 
 **Frontend Development:**
+
 Form Handling: Proper form validation and error handling.
+
 User Experience: Designed a good UI with loading indicators and error messages.
+
 Timeout Handling: Automatically the tasks will be moved to the "Timeout" category if their duration exceeds a certain limit.
 
 **Task Data Management**:
